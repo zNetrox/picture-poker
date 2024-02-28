@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/main.js" type="module"></script>
+    <script src="js/infos_settings.js" type="module"></script>
+    <title>Picture Poker</title>
+    <link rel="icon" href="#"/>
+</head>
+<body>
+  <!-- tamplate carte -->
+  <template id="template-card">
+    <div class="card go-in">
+      <div class="inner-card">
+          <div class="front"></div>
+          <div class="back"></div>
+      </div>
+    </div>
+  </template>
+  <nav>
+    <div class="bg-nav"></div> <!-- background menu -->
+    <!-- menu -->
+    <div class="nav-menu">
+      <div class="container-settings">
+      <!-- settings theme -->
+      <div class="setting-1">
+        <h2 class="slide-up delay-06">background</h2>
+        <div class="wrapper-1 slide-up delay-05">
+          <div id="swipe-left">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+          </div>
+          <div class="carousel">
+            <div>dark</div>
+            <div>light</div>
+            <div>green</div>
+          </div>
+          <div id="swipe-right">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+          </div>
+        </div>
+      </div>
+      <!-- settings cards -->
+        <div class="setting-2">
+          <h2 class="slide-up delay-04">cards</h2>
+          <div class="wrapper-2 slide-up delay-03">
+            <div id="swipe-left">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+            </div>
+            <div class="carousel">
+              <div>classic</div>
+              <div>spectrum</div>
+              <div>fire</div>
+            </div>
+            <div id="swipe-right">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- settings sound -->
+        <div class="setting-3">
+          <div>
+            <h2 class="slide-up delay-02">music</h2>
+            <label class="switch slide-up delay-01">
+              <input id="switch-music" type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div>
+            <div>
+              <h2 class="slide-up delay-02">sound effect</h2>
+              <label class="switch slide-up delay-01">
+                <input id="switch-sound" type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- apply -->
+        <button id="apply-settings" class="slide-up">apply</button>
+        <!-- infos -->
+        <div class="infos">
+          <div>
+            <a class="slide-left delay-07" href="#">rules</a>
+            <a class="slide-left delay-08" href="#">others</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="curtain">
+    <p>You Lost</p>
+    <button>restart</button>
+  </div>
+  <!-- main page -->
+  <div id="page">
+    <!-- partie gauche -->
+    <aside class="aside-left">
+      <div class="container-bet">
+        <div>
+          <img src="img/coin.png" alt="coin">
+          <p id="total-coin">10</p>
+        </div>
+        <div>
+          <button id='bet-btn'>Bet!</button>
+        </div>
+      </div>
+      <div id="power">
+        <div>⭐️</div>
+        <div>🔥</div>
+        <div>❤️</div>
+        <div>🌹</div>
+        <div>🍄</div>
+        <div>☁️</div>
+      </div>
+    </aside>
+    <!-- partie du milieu -->
+    <div class="middle">
+      <div class="final-bet"></div>
+      <main>
+        <div id="popup-win"></div>
+        <p id="txt-background">Picture Poker</p>
+        <div class="ia-hand">
+          <div class="position-1"></div>
+          <div class="position-2"></div>
+          <div class="position-3"></div>
+          <div class="position-4"></div>
+          <div class="position-5"></div>
+        </div>
+        <button id="play-btn">hold<!-- draw --></button>
+        <div class="user-hand">
+          <div class="position-1"></div>
+          <div class="position-2"></div>
+          <div class="position-3"></div>
+          <div class="position-4"></div>
+          <div class="position-5"></div>
+        </div>
+      </main>
+    </div>
+    <!-- partie droite -->
+    <aside class="aside-right">
+      <div class="container-possibility">
+        <div class="possibility-1">
+          <div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+          </div>
+          <div>
+            <p>x16</p>
+          </div>
+        </div>
+        <div class="possibility-2">
+          <div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+          </div>
+          <div>
+            <p>x8</p>
+          </div>
+        </div>
+        <div class="possibility-3">
+          <div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>🍄</div>
+            <div>🍄</div>
+          </div>
+          <div>
+            <p>x6</p>
+          </div>
+        </div>
+        <div class="possibility-4">
+          <div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+          </div>
+          <div>
+            <p>x4</p>
+          </div>
+        </div>
+        <div class="possibility-5">
+          <div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+            <div>🍄</div>
+            <div>🍄</div>
+          </div>
+          <div>
+            <p>x3</p>
+          </div>
+        </div>
+        <div class="possibility-3">
+          <div>
+            <div>⭐️</div>
+            <div>⭐️</div>
+          </div>
+          <div>
+            <p>x2</p>
+          </div>
+        </div>
+      </div>
+      <div class="container-btn-settings">
+        <button id="settings">
+          <svg id="open-settings" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/></svg>
+          <svg id="close-settings" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        </button>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>
